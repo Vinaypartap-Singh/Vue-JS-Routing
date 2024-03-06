@@ -22,6 +22,23 @@ const router = createRouter({
       name: "jobs",
       component: () => import("../views/jobs/JobsView.vue"),
     },
+    {
+      path: "/jobs/:id",
+      name: "JobDetails",
+      component: () => import("../views/jobs/JobDetails.vue"),
+      props: true,
+    },
+    // Redirect
+    {
+      path: "/all-jobs",
+      redirect: "/jobs",
+    },
+    // Catch all Routes 404
+    {
+      path: "/:catchAll(.*)",
+      name: "NotFound",
+      component: () => import("../views/NotFound.vue"),
+    },
   ],
 });
 
